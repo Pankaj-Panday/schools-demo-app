@@ -1,34 +1,6 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { SchoolCard } from "./school-card";
 
-export const SchoolList = () => {
-  const [schools, setSchools] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadSchools = async () => {
-      try {
-        const res = await fetch("/api/schools");
-        if (!res.ok) throw new Error("Failed to fetch schools");
-        const data = await res.json();
-        setSchools(data);
-      } catch (err) {
-        console.error("Error fetching schools:", err);
-        setSchools([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadSchools();
-  }, []);
-
-  if (loading) {
-    return <div className="flex justify-center items-center py-16 text-gray-500">Loading schools...</div>;
-  }
-
+export const SchoolList = ({ schools = [] }) => {
   if (schools.length === 0) {
     return <div className="flex justify-center items-center py-16 text-gray-500">No schools found.</div>;
   }

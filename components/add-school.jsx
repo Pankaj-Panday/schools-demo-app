@@ -65,7 +65,7 @@ export const AddSchool = () => {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-4xl mx-auto bg-white sm:border border-gray-200 rounded-xl p-6 space-y-6 sm:my-6"
+        className="bg-white sm:border border-gray-200 rounded-xl p-6 space-y-6 sm:my-6"
       >
         <header className="mb-6">
           <h2 className="text-2xl font-semibold text-gray-800 border-b border-b-gray-200 pb-3">Enter School Details</h2>
